@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Stone — Design System v1.0</title>
+  <link rel="stylesheet" href="../src/styles/reset.css">
+  <link rel="stylesheet" href="../src/styles/tokens.css">
+  <link rel="stylesheet" href="../src/styles/base.css">
+  <link rel="stylesheet" href="../src/styles/components.css">
+  <style>
+    /* Demo page only — not part of the design system */
+    body { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+    .demo-section { margin-bottom: 4rem; padding-bottom: 3rem; border-bottom: 1px solid var(--color-border, #e0d9cc); }
+    .demo-title { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text-secondary, #5C5C62); margin-bottom: 1.5rem; }
+    .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
+    .swatch { border-radius: var(--radius-md, 6px); overflow: hidden; border: 1px solid var(--color-border, #e0d9cc); }
+    .swatch-color { height: 100px; }
+    .swatch-info { padding: 0.75rem; background: #fff; }
+    .swatch-name { font-weight: 600; font-size: 0.9rem; }
+    .swatch-hex { font-family: monospace; font-size: 0.8rem; color: var(--color-text-secondary, #5C5C62); margin-top: 0.25rem; }
+    .type-row { padding: 0.75rem 0; border-bottom: 1px dashed var(--color-border, #e0d9cc); }
+    .type-label { font-family: monospace; font-size: 0.75rem; color: var(--color-text-secondary, #5C5C62); margin-bottom: 0.5rem; }
+    .button-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 1rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .form-demo { max-width: 480px; }
+    .form-demo > * + * { margin-top: 1rem; }
+    .spacing-row { display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0; }
+    .spacing-bar { background: var(--color-primary, #B8922A); height: 16px; }
+    .spacing-label { font-family: monospace; font-size: 0.85rem; min-width: 120px; }
+  </style>
+</head>
+<body>
+
+  <header style="margin-bottom: 4rem;">
+    <h1>Golden Stone — Design System</h1>
+    <p style="color: var(--color-text-secondary, #5C5C62); margin-top: 0.5rem;">
+      Visual reference for tokens and components. Version 1.0 · Based on Brand Book v2.0.
+    </p>
+  </header>
+
+  <!-- COLOURS -->
+  <section class="demo-section">
+    <div class="demo-title">01 — Colours</div>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: #B8922A;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Brass Gold</div>
+          <div class="swatch-hex">#B8922A</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #111111;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Deep Black</div>
+          <div class="swatch-hex">#111111</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #F5F0E8;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Warm Cream</div>
+          <div class="swatch-hex">#F5F0E8</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #FFFFFF; border: 1px solid #ddd;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White</div>
+          <div class="swatch-hex">#FFFFFF</div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--color-text-secondary, #5C5C62);">
+      Refer to <code>tokens.css</code> for the full palette including neutrals and supporting colours.
+    </p>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="demo-section">
+    <div class="demo-title">02 — Typography</div>
+    <div class="type-row">
+      <div class="type-label">h1 — Display, Barlow Semi Condensed</div>
+      <h1>Crafted in Stone. Built to Last.</h1>
+    </div>
+    <div class="type-row">
+      <div class="type-label">h2</div>
+      <h2>Premium Stonemason Services</h2>
+    </div>
+    <div class="type-row">
+      <div class="type-label">h3</div>
+      <h3>Kitchen Benchtops in Natural Stone</h3>
+    </div>
+    <div class="type-row">
+      <div class="type-label">h4</div>
+      <h4>Section Heading Example</h4>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Body — DM Sans</div>
+      <p>Golden Stone QLD supplies and installs kitchen benchtops in natural and engineered stone across South-East Queensland. We work with joineries and home owners who value reliable scheduling, clear communication, and 15+ years of stone masonry experience.</p>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Small / Caption</div>
+      <small>Servicing Brisbane, Ipswich, Logan, Gold Coast, and surrounding SEQ.</small>
+    </div>
+  </section>
+
+  <!-- BUTTONS -->
+  <section class="demo-section">
+    <div class="demo-title">03 — Buttons</div>
+    <div class="button-row">
+      <button class="btn btn-primary">Get a Quote</button>
+      <button class="btn btn-outline">View Our Work</button>
+      <button class="btn btn-ghost">Learn More</button>
+    </div>
+    <div class="button-row">
+      <button class="btn btn-primary" disabled>Disabled</button>
+      <a href="#" class="btn btn-primary">Link as Button</a>
+    </div>
+  </section>
+
+  <!-- CARDS -->
+  <section class="demo-section">
+    <div class="demo-title">04 — Cards</div>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Default Card</h3>
+        <p>Standard card with body content. Used for service tiles and general content blocks.</p>
+      </div>
+      <div class="card card-bordered">
+        <h3>Bordered Card</h3>
+        <p>Adds a subtle border for content that needs more definition.</p>
+      </div>
+      <div class="card card-dark">
+        <h3>Dark Card</h3>
+        <p>Inverted variant for dark sections and high-contrast features.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMS -->
+  <section class="demo-section">
+    <div class="demo-title">05 — Form Elements</div>
+    <div class="form-demo">
+      <div>
+        <label for="demo-name">Full Name</label>
+        <input id="demo-name" type="text" placeholder="John Smith">
+      </div>
+      <div>
+        <label for="demo-email">Email</label>
+        <input id="demo-email" type="email" placeholder="you@example.com">
+      </div>
+      <div>
+        <label for="demo-project">Project Type</label>
+        <select id="demo-project">
+          <option>Kitchen Benchtop</option>
+          <option>Bathroom Vanity</option>
+          <option>Custom Stonework</option>
+        </select>
+      </div>
+      <div>
+        <label for="demo-message">Message</label>
+        <textarea id="demo-message" rows="4" placeholder="Tell us about your project..."></textarea>
+      </div>
+      <button class="btn btn-primary">Send Request</button>
+    </div>
+  </section>
+
+  <!-- SPACING -->
+  <section class="demo-section">
+    <div class="demo-title">06 — Spacing Scale (8pt grid)</div>
+    <div class="spacing-row"><div class="spacing-label">--space-1 · 4px</div><div class="spacing-bar" style="width: 4px;"></div></div>
+    <div class="spacing-row"><div class="spacing-label">--space-2 · 8px</div><div class="spacing-bar" style="width: 8px;"></div></div>
+    <div class="spacing-row"><div class="spacing-label">--space-3 · 12px</div><div class="spacing-bar" style="width: 12px;"></div></div>
+    <div class="spacing-row"><div class="spacing-label">--space-4 · 16px</div><div class="spacing-bar" style="width: 16px;"></div></div>
+    <div class="spacing-row"><div class="spacing-label">--space-6 · 24px</div><div class="spacing-bar" style="width: 24px;"></div></div>
+    <div class="spacing-row"><div class="spacing-label">--space-8 · 32px</div><div class="spacing-bar" style="width: 32px;"></div></div>
+    <div class="spacing-row"><div class="spacing-label">--space-12 · 48px</div><div class="spacing-bar" style="width: 48px;"></div></div>
+    <div class="spacing-row"><div class="spacing-label">--space-16 · 64px</div><div class="spacing-bar" style="width: 64px;"></div></div>
+  </section>
+
+  <footer style="text-align: center; padding: 2rem 0; color: var(--color-text-secondary, #5C5C62); font-size: 0.85rem;">
+    Golden Stone QLD · Design System v1.0 · Brisbane, Australia
+  </footer>
+
+</body>
+</html>
