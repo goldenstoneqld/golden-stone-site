@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Golden Stone QLD — CSS Reset
+   Based on Andy Bell's Modern CSS Reset + Josh Comeau additions
+   Australian English comments
+   ========================================================================== */
+
+/* --- Box sizing --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* --- Remove default margin and padding --- */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Root defaults --- */
+html {
+  /* Prevent font size inflation on mobile (iOS Safari) */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Smooth anchor scrolling */
+  scroll-behavior: smooth;
+  /* Tab focus visible by default */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* --- Body --- */
+body {
+  min-height: 100dvh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* --- Media elements — block by default --- */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* --- Inherit fonts for inputs --- */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* --- Remove list styles when role="list" applied --- */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* --- Typographic orphans — avoid alone words on last line --- */
+p,
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* --- Avoid text overflow --- */
+p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* --- Remove default button styling --- */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* --- Anchor reset --- */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- Table --- */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* --- Fieldset --- */
+fieldset {
+  border: none;
+}
+
+/* --- Hidden --- */
+[hidden] {
+  display: none !important;
+}
+
+/* --- Accessible focus — removed default, re-applied via :focus-visible --- */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold, #B8922A);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

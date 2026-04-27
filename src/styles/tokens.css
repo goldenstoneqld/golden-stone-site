@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Golden Stone QLD — Design Tokens
+   Source: docs/brand/brand-book.md v2.0
+   Australian English comments throughout.
+
+   Import order:
+     1. tokens.css   ← this file
+     2. reset.css
+     3. base.css
+     4. components.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Google Fonts
+   Barlow Semi Condensed — display / headings (600, 700)
+   DM Sans              — body / UI copy (400, 500)
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap');
+
+
+:root {
+
+  /* =========================================================================
+     COLOUR PALETTE
+     Brand Book v2.0 — Gold + Black
+     ========================================================================= */
+
+  /* --- Primary brand colours --- */
+  --colour-gold:          #B8922A; /* Brass Gold — main brand colour; bar mark, CTAs, accents  */
+  --colour-gold-dark:     #7A5F1A; /* Dark Gold — slab right-face shadow, pressed states       */
+  --colour-gold-light:    #C9A84C; /* Champagne — highlight accent, small-scale gold use       */
+  --colour-black:         #111111; /* Deep Black — anchor colour, slab front-face, dark bg     */
+
+  /* --- Neutral palette --- */
+  --colour-bg:            #F5F0E8; /* Warm Cream — page background (warm, not clinical white)  */
+  --colour-surface:       #EDE7DA; /* Surface — cards, alternating table rows                  */
+  --colour-border:        #D8D0C0; /* Border — dividers, input outlines                        */
+  --colour-stone:         #9E9790; /* Stone Grey — sub-labels, secondary/muted text            */
+  --colour-text:          #111111; /* Primary text — same as anchor; warm near-black           */
+  --colour-text-sec:      #5C5650; /* Secondary text — captions, supporting copy               */
+  --colour-text-muted:    #9E9790; /* Muted text — placeholder, disabled states               */
+  --colour-white:         #FFFFFF;
+
+  /* --- Supporting gold tones (derived from primary) --- */
+  --colour-gold-wash:     rgba(184, 146, 42, 0.10); /* Subtle gold tint — hover backgrounds    */
+  --colour-gold-glow:     rgba(184, 146, 42, 0.30); /* Focus ring, gold highlight              */
+  --colour-gold-border:   rgba(184, 146, 42, 0.25); /* Subtle gold border on dark surfaces     */
+
+  /* --- Dark surface variants --- */
+  --colour-surface-dark:  #1C1A18; /* Dark card / section background                          */
+  --colour-overlay:       rgba(17, 17, 17, 0.65); /* Photo overlays, modal backdrops           */
+
+  /* --- Semantic colours --- */
+  --colour-success:       #2A7A4A;
+  --colour-success-bg:    rgba(42, 122, 74, 0.10);
+  --colour-warning:       #B86A1A;
+  --colour-warning-bg:    rgba(184, 106, 26, 0.10);
+  --colour-error:         #B83A2A;
+  --colour-error-bg:      rgba(184, 58, 42, 0.10);
+  --colour-info:          #2A5A8A;
+  --colour-info-bg:       rgba(42, 90, 138, 0.10);
+
+
+  /* =========================================================================
+     TYPOGRAPHY
+     ========================================================================= */
+
+  /* --- Font families --- */
+  --font-display: 'Barlow Semi Condensed', 'Arial Narrow', Arial, sans-serif;
+  --font-body:    'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  /* --- Type scale — Major Third (×1.25), base 16px ---
+     Use display font (Barlow Semi Condensed) for text-xl and above.
+     Use body font (DM Sans) for text-base and below.
+  --- */
+  --text-xs:    0.75rem;   /*  12px — captions, fine print, badges      */
+  --text-sm:    0.875rem;  /*  14px — small UI text, helper labels       */
+  --text-base:  1rem;      /*  16px — body copy (minimum for readability)*/
+  --text-lg:    1.125rem;  /*  18px — lead paragraph, large body         */
+  --text-xl:    1.25rem;   /*  20px — h4, sub-section headings           */
+  --text-2xl:   1.625rem;  /*  26px — h3                                 */
+  --text-3xl:   2.125rem;  /*  34px — h2                                 */
+  --text-4xl:   2.625rem;  /*  42px — h1                                 */
+  --text-hero:  3.25rem;   /*  52px — display / hero headings            */
+
+  /* --- Font weights --- */
+  --font-regular:  400;
+  --font-medium:   500;
+  --font-semibold: 600;
+  --font-bold:     700;
+
+  /* --- Line heights --- */
+  --leading-tight:   1.15;  /* Hero / display headings                   */
+  --leading-snug:    1.25;  /* H1, H2                                    */
+  --leading-normal:  1.4;   /* H3, H4                                    */
+  --leading-relaxed: 1.6;   /* Body copy (optimal for DM Sans)           */
+  --leading-loose:   1.75;  /* Long-form / article content               */
+
+  /* --- Letter spacing --- */
+  --tracking-tight:  -0.02em; /* Display headings — tighter for impact   */
+  --tracking-normal:  0em;
+  --tracking-wide:    0.05em; /* All-caps labels                         */
+  --tracking-wider:   0.08em; /* Sub-labels, tags, fine print            */
+
+
+  /* =========================================================================
+     SPACING — 8pt Grid
+     ========================================================================= */
+
+  --space-1:   0.25rem;  /*   4px */
+  --space-2:   0.5rem;   /*   8px */
+  --space-3:   0.75rem;  /*  12px */
+  --space-4:   1rem;     /*  16px */
+  --space-6:   1.5rem;   /*  24px */
+  --space-8:   2rem;     /*  32px */
+  --space-12:  3rem;     /*  48px */
+  --space-16:  4rem;     /*  64px */
+  --space-24:  6rem;     /*  96px */
+
+
+  /* =========================================================================
+     BORDER RADII
+     ========================================================================= */
+
+  --radius-sm:   3px;    /* Subtle rounding — chips, badges, code blocks  */
+  --radius-md:   6px;    /* Buttons, inputs, small cards                  */
+  --radius-lg:   12px;   /* Cards, panels, modals                         */
+  --radius-full: 9999px; /* Pills, circular avatars                       */
+
+
+  /* =========================================================================
+     SHADOWS — subtle, premium feel; no harsh drops
+     ========================================================================= */
+
+  --shadow-xs:   0 1px 2px  rgba(17, 17, 17, 0.06);  /* Hairline lift    */
+  --shadow-sm:   0 2px 6px  rgba(17, 17, 17, 0.08);  /* Cards at rest    */
+  --shadow-md:   0 4px 16px rgba(17, 17, 17, 0.10);  /* Cards on hover   */
+  --shadow-lg:   0 8px 32px rgba(17, 17, 17, 0.12);  /* Dropdowns, popovers */
+  --shadow-xl:   0 16px 48px rgba(17, 17, 17, 0.14); /* Modals, drawers  */
+
+  /* Focus ring — gold glow; replaces default browser outline */
+  --shadow-focus: 0 0 0 3px var(--colour-gold-glow);
+
+  /* Inset — for form inputs (subtle depth on background) */
+  --shadow-inset: inset 0 1px 3px rgba(17, 17, 17, 0.07);
+
+
+  /* =========================================================================
+     BREAKPOINTS (reference values — documentation only)
+
+     CSS custom properties cannot be used directly inside @media queries.
+     Use these values as a reference when writing media queries:
+
+       @media (min-width: 640px)  { … }   --bp-sm
+       @media (min-width: 768px)  { … }   --bp-md
+       @media (min-width: 1024px) { … }   --bp-lg
+       @media (min-width: 1280px) { … }   --bp-xl
+
+     All breakpoints follow a mobile-first approach.
+     ========================================================================= */
+
+  /* --bp-sm:   640px;  */
+  /* --bp-md:   768px;  */
+  /* --bp-lg:   1024px; */
+  /* --bp-xl:   1280px; */
+
+
+  /* =========================================================================
+     TRANSITIONS & TIMINGS
+     ========================================================================= */
+
+  /* --- Durations --- */
+  --duration-fast:   150ms;  /* Micro-interactions: icon swaps, checkboxes  */
+  --duration-base:   250ms;  /* Standard: hover states, colour changes       */
+  --duration-slow:   400ms;  /* Entrances: modals, drawers, page transitions */
+
+  /* --- Easing curves --- */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);   /* Natural deceleration — entrances */
+  --ease-in:     cubic-bezier(0.4, 0, 1, 1);      /* Acceleration — exits             */
+  --ease-inout:  cubic-bezier(0.45, 0, 0.55, 1);  /* Balanced — toggles, slides       */
+
+  /* --- Shorthand transitions (most common combinations) --- */
+  --transition-colour:
+    color            var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out),
+    border-color     var(--duration-base) var(--ease-out);
+
+  --transition-shadow:
+    box-shadow var(--duration-base) var(--ease-out);
+
+  --transition-transform:
+    transform var(--duration-base) var(--ease-out);
+
+  --transition-all:
+    color            var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out),
+    border-color     var(--duration-base) var(--ease-out),
+    box-shadow       var(--duration-base) var(--ease-out),
+    transform        var(--duration-base) var(--ease-out);
+
+
+  /* =========================================================================
+     LAYOUT
+     ========================================================================= */
+
+  --container-max:    1280px; /* Full-width content cap                     */
+  --container-prose:  72ch;   /* Optimal reading width for body copy        */
+  --container-narrow: 640px;  /* Narrow forms, centred content blocks       */
+
+  --gutter-sm:  var(--space-4);  /* 16px — mobile horizontal padding        */
+  --gutter-md:  var(--space-6);  /* 24px — tablet horizontal padding        */
+  --gutter-lg:  var(--space-8);  /* 32px — desktop horizontal padding       */
+
+}
