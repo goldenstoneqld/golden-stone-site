@@ -60,6 +60,33 @@
   --colour-info:          #2A5A8A;
   --colour-info-bg:       rgba(42, 90, 138, 0.10);
 
+  /* --- CSS aliases (American English spelling) for component compatibility --- */
+  --color-gold:           var(--colour-gold);
+  --color-gold-dark:      var(--colour-gold-dark);
+  --color-gold-light:     var(--colour-gold-light);
+  --color-black:          var(--colour-black);
+  --color-bg:             var(--colour-bg);
+  --color-surface:        var(--colour-surface);
+  --color-border:         var(--colour-border);
+  --color-stone:          var(--colour-stone);
+  --color-text:           var(--colour-text);
+  --color-text-sec:       var(--colour-text-sec);
+  --color-text-muted:     var(--colour-text-muted);
+  --color-white:          var(--colour-white);
+  --color-gold-wash:      var(--colour-gold-wash);
+  --color-gold-glow:      var(--colour-gold-glow);
+  --color-gold-border:    var(--colour-gold-border);
+  --color-surface-dark:   var(--colour-surface-dark);
+  --color-overlay:        var(--colour-overlay);
+  --color-success:        var(--colour-success);
+  --color-success-bg:     var(--colour-success-bg);
+  --color-warning:        var(--colour-warning);
+  --color-warning-bg:     var(--colour-warning-bg);
+  --color-error:          var(--colour-error);
+  --color-error-bg:       var(--colour-error-bg);
+  --color-info:           var(--colour-info);
+  --color-info-bg:        var(--colour-info-bg);
+
 
   /* =========================================================================
      TYPOGRAPHY
@@ -143,6 +170,9 @@
 
   /* Inset — for form inputs (subtle depth on background) */
   --shadow-inset: inset 0 1px 3px rgba(17, 17, 17, 0.07);
+
+  /* Gold focus ring — form inputs and interactive elements */
+  --shadow-gold: 0 0 0 3px var(--colour-gold-glow);
 
 
   /* =========================================================================
