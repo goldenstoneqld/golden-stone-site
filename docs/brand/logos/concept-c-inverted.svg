@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 80" width="440" height="80" role="img" aria-label="Golden Stone QLD — Concept C inverted">
+  <!-- Black background -->
+  <rect x="0" y="0" width="440" height="80" fill="#111111"/>
+
+  <!-- Structural gold bar -->
+  <rect x="0" y="0" width="440" height="3" fill="#B8922A"/>
+
+  <!-- "GOLDEN" in gold -->
+  <text x="0" y="52"
+    font-family="'Barlow Semi Condensed','Arial Narrow',Arial,sans-serif"
+    font-weight="700" font-size="40" fill="#B8922A"
+    letter-spacing="1">GOLDEN</text>
+
+  <!-- Vertical separator -->
+  <rect x="202" y="20" width="2" height="34" fill="#B8922A" opacity="0.3"/>
+
+  <!-- "STONE" in warm cream -->
+  <text x="210" y="52"
+    font-family="'Barlow Semi Condensed','Arial Narrow',Arial,sans-serif"
+    font-weight="700" font-size="40" fill="#F5F0E8"
+    letter-spacing="1">STONE</text>
+
+  <!-- Sub-label -->
+  <text x="0" y="70"
+    font-family="'DM Sans','Helvetica Neue',Arial,sans-serif"
+    font-weight="500" font-size="11" fill="#9E9790"
+    letter-spacing="4.5">STONE MASONRY  ·  QLD</text>
+</svg>

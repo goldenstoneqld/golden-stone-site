@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 84" width="440" height="84" role="img" aria-label="Golden Stone QLD — Concept D symbol wordmark">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&amp;family=DM+Sans:wght@400;500&amp;display=swap');
+    </style>
+  </defs>
+
+  <!--
+    Mark: Isometric stone slab in perspective.
+    Represents a kitchen benchtop slab being set into place —
+    the TOP face (gold) is the finished working surface;
+    the FRONT face (black) is the stone body/thickness.
+    Metaphor: gold = what the client sees; black = solid foundation.
+
+    Geometry (all coordinates in 84×84 mark area):
+    Front face rect : (4,38) → (60,38) → (60,66) → (4,66)
+    Top face para   : (4,38) → (20,20) → (76,20) → (60,38)
+    Right edge para : (60,38) → (76,20) → (76,48) → (60,66)
+  -->
+
+  <!-- Top face — finished stone surface (gold) -->
+  <polygon points="4,38 20,20 76,20 60,38" fill="#B8922A"/>
+
+  <!-- Front face — stone body (deep black) -->
+  <rect x="4" y="38" width="56" height="28" fill="#111111"/>
+
+  <!-- Right edge — shadow/depth (dark gold) -->
+  <polygon points="60,38 76,20 76,48 60,66" fill="#7A5F1A"/>
+
+  <!-- Subtle surface highlight — single line on top face leading edge -->
+  <line x1="4" y1="38" x2="60" y2="38" stroke="#C9A84C" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- ── Wordmark ── -->
+  <text x="96" y="40"
+    font-family="'Barlow Semi Condensed','Arial Narrow',Arial,sans-serif"
+    font-weight="700" font-size="30" fill="#111111"
+    letter-spacing="1.5">GOLDEN STONE</text>
+
+  <!-- Gold accent rule under wordmark -->
+  <rect x="96" y="47" width="336" height="2" fill="#B8922A"/>
+
+  <!-- Sub-label -->
+  <text x="96" y="66"
+    font-family="'DM Sans','Helvetica Neue',Arial,sans-serif"
+    font-weight="500" font-size="11" fill="#9E9790"
+    letter-spacing="4.5">STONE MASONRY  ·  QLD</text>
+</svg>
