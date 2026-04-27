@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Golden Stone QLD — Premium kitchen benchtops and stone masonry across South East Queensland. Granite, marble, quartzite and silica-free engineered stone. Brisbane, Ipswich, Logan, Gold Coast.">
+  <title>Golden Stone QLD — Crafted in Stone. Built to Last.</title>
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><polygon points='4,38 20,20 76,20 60,38' fill='%23B8922A'/><rect x='4' y='38' width='56' height='28' fill='%23111111'/><polygon points='60,38 76,20 76,48 60,66' fill='%237A5F1A'/></svg>">
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <link rel="stylesheet" href="src/styles/base.css">
+  <link rel="stylesheet" href="src/styles/components.css">
+
+  <!-- Page styles -->
+  <link rel="stylesheet" href="src/styles/pages/home.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       SITE HEADER
+       Fixed, transparent over hero. JS adds .scrolled on scroll.
+       ===================================================================== -->
+  <header class="site-header" id="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav__inner container">
+        <!-- Logo -->
+        <a href="/" class="nav__logo" aria-label="Golden Stone QLD — home">
+          <svg width="40" height="34" viewBox="0 0 80 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polygon points="4,38 20,20 76,20 60,38" fill="#B8922A"/>
+            <rect x="4" y="38" width="56" height="28" fill="#111111"/>
+            <polygon points="60,38 76,20 76,48 60,66" fill="#7A5F1A"/>
+          </svg>
+          <span class="nav__logo-text">Golden Stone</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <ul class="nav__links" role="list">
+          <li><a href="#services" class="nav__link">Services</a></li>
+          <li><a href="#why-us" class="nav__link">Why Us</a></li>
+          <li><a href="#projects" class="nav__link">Projects</a></li>
+          <li><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+
+        <!-- Desktop CTA -->
+        <a href="#contact" class="btn btn--primary btn--sm nav__cta">Get a Quote</a>
+
+        <!-- Mobile hamburger -->
+        <button class="nav__hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu (full-width dropdown below nav bar) -->
+    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+      <a href="#services" class="mobile-menu__link">Services</a>
+      <a href="#why-us" class="mobile-menu__link">Why Us</a>
+      <a href="#projects" class="mobile-menu__link">Projects</a>
+      <a href="#contact" class="mobile-menu__link">Contact</a>
+      <a href="#contact" class="btn btn--primary mobile-menu__cta">Get a Quote</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================================================================
+         HERO
+         Full viewport, Unsplash stone photo, dark overlay, centred left.
+         =================================================================== -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <span class="hero__label fade-in">Brisbane · Ipswich · Logan · Gold Coast</span>
+
+        <h1 class="hero__headline fade-in fade-in-delay-1">
+          Crafted in Stone.<br>
+          <span>Built to Last.</span>
+        </h1>
+
+        <p class="hero__subhead fade-in fade-in-delay-2">
+          Premium kitchen benchtops and custom stonework across South East Queensland.
+          Granite, marble, quartzite and silica-free engineered stone — supplied and installed.
+        </p>
+
+        <div class="hero__actions fade-in fade-in-delay-3">
+          <a href="#contact" class="btn btn--primary btn--lg">Get a Free Quote</a>
+          <a href="#projects" class="btn btn--outline-light btn--lg">View Our Work</a>
+        </div>
+      </div>
+
+      <div class="hero__bar" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===================================================================
+         INTRO STRIP
+         15-year trust signal, centred pull-quote style.
+         =================================================================== -->
+    <section class="section section--cream intro-strip" aria-labelledby="intro-quote">
+      <div class="container intro-strip__inner">
+        <p class="intro-strip__quote fade-in" id="intro-quote">
+          With over 15 years in the stone industry, Golden Stone QLD brings
+          precision craftsmanship and an honest trade relationship to every project —
+          from a single kitchen benchtop to a full multi-unit residential build.
+        </p>
+        <div class="intro-strip__rule fade-in fade-in-delay-1" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SERVICES
+         3-column card grid. Each card: image, label, title, description.
+         =================================================================== -->
+    <section class="section section--surface services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-header fade-in">
+          <span class="section-header__label">What We Do</span>
+          <h2 class="section-header__title" id="services-title">Premium Stone Services</h2>
+          <p class="section-header__sub">
+            Specialising in natural and engineered stone for residential and commercial projects across SEQ.
+          </p>
+        </header>
+
+        <div class="services__grid">
+
+          <!-- Kitchen Benchtops -->
+          <article class="service-card fade-in">
+            <div class="service-card__image">
+              <img
+                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fit=crop"
+                alt="Polished granite kitchen benchtop in a modern Brisbane kitchen"
+                loading="lazy"
+                width="800"
+                height="500"
+              >
+            </div>
+            <div class="service-card__body">
+              <span class="service-card__label">Residential &amp; Commercial</span>
+              <h3 class="service-card__title">Kitchen Benchtops</h3>
+              <p class="service-card__desc">
+                Granite, marble, quartzite, and silica-free engineered stone. Templated, fabricated,
+                and installed to exact specification. We work with joineries and direct homeowners.
+              </p>
+            </div>
+          </article>
+
+          <!-- Bathroom Vanities -->
+          <article class="service-card fade-in fade-in-delay-1">
+            <div class="service-card__image">
+              <img
+                src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80&fit=crop"
+                alt="Marble bathroom vanity top with undermount basin"
+                loading="lazy"
+                width="800"
+                height="500"
+              >
+            </div>
+            <div class="service-card__body">
+              <span class="service-card__label">Bathrooms &amp; Ensuites</span>
+              <h3 class="service-card__title">Bathroom Vanities</h3>
+              <p class="service-card__desc">
+                Stone vanity tops, shower niches, and feature walls that bring a spa-like finish
+                to bathrooms and ensuites. Custom cut-outs for undermount and integrated basins.
+              </p>
+            </div>
+          </article>
+
+          <!-- Custom Stonework -->
+          <article class="service-card fade-in fade-in-delay-2">
+            <div class="service-card__image">
+              <img
+                src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&q=80&fit=crop"
+                alt="Custom stone fireplace surround and hearth"
+                loading="lazy"
+                width="800"
+                height="500"
+              >
+            </div>
+            <div class="service-card__body">
+              <span class="service-card__label">Bespoke Projects</span>
+              <h3 class="service-card__title">Custom Stonework</h3>
+              <p class="service-card__desc">
+                Fireplace surrounds, alfresco entertaining areas, reception desks, and one-off
+                statement pieces. If it can be built in stone, our team can deliver it.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         WHY GOLDEN STONE
+         Dark section, 4-pillar grid.
+         =================================================================== -->
+    <section class="section section--dark why-us" id="why-us" aria-labelledby="why-us-title">
+      <div class="container">
+        <header class="section-header fade-in">
+          <span class="section-header__label">Why Choose Us</span>
+          <h2 class="section-header__title" id="why-us-title">The Golden Stone Difference</h2>
+          <p class="section-header__sub">
+            Four reasons trade professionals and homeowners come back to us, project after project.
+          </p>
+        </header>
+
+        <div class="pillars">
+
+          <div class="pillar fade-in">
+            <h3 class="pillar__title">Premium Materials</h3>
+            <p class="pillar__desc">
+              We source only from trusted Australian and international suppliers — Caesarstone,
+              WK Stone, YDL Stone, Stone Ambassador, and Better Stone. Every slab is inspected before it leaves the yard.
+            </p>
+          </div>
+
+          <div class="pillar fade-in fade-in-delay-1">
+            <h3 class="pillar__title">Precision Craftsmanship</h3>
+            <p class="pillar__desc">
+              15+ years of stone masonry experience. Digital templating, CNC fabrication,
+              and hand-finished edges. Tolerances measured in millimetres, not centimetres.
+            </p>
+          </div>
+
+          <div class="pillar fade-in fade-in-delay-2">
+            <h3 class="pillar__title">Local Brisbane Team</h3>
+            <p class="pillar__desc">
+              We live and work here. Same team from measure to install — no outsourcing,
+              no surprises. Servicing Brisbane, Ipswich, Logan, Gold Coast, and surrounding SEQ.
+            </p>
+          </div>
+
+          <div class="pillar fade-in fade-in-delay-3">
+            <h3 class="pillar__title">Tailored Solutions</h3>
+            <p class="pillar__desc">
+              Every kitchen is different. We adapt to your joinery schedule, your slab choice,
+              and your timeline. Clear communication from first contact to final install.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         FEATURED PROJECTS
+         4-image mosaic grid with gold hover border.
+         =================================================================== -->
+    <section class="section projects" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-header fade-in">
+          <span class="section-header__label">Recent Work</span>
+          <h2 class="section-header__title" id="projects-title">Featured Projects</h2>
+          <p class="section-header__sub">
+            A selection of recent installations across South East Queensland.
+          </p>
+        </header>
+
+        <div class="projects__grid">
+          <div class="project-tile fade-in">
+            <img
+              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80&fit=crop&crop=center"
+              alt="Granite kitchen benchtop, Paddington Brisbane"
+              loading="lazy"
+              width="600"
+              height="600"
+            >
+          </div>
+          <div class="project-tile fade-in fade-in-delay-1">
+            <img
+              src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&q=80&fit=crop&crop=center"
+              alt="Marble island benchtop, New Farm Brisbane"
+              loading="lazy"
+              width="600"
+              height="600"
+            >
+          </div>
+          <div class="project-tile fade-in fade-in-delay-2">
+            <img
+              src="https://images.unsplash.com/photo-1556909048-f6e620e5e7e8?w=600&q=80&fit=crop&crop=center"
+              alt="Engineered stone bathroom vanity, Gold Coast"
+              loading="lazy"
+              width="600"
+              height="600"
+            >
+          </div>
+          <div class="project-tile fade-in fade-in-delay-3">
+            <img
+              src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&q=80&fit=crop&crop=center"
+              alt="Quartzite alfresco entertaining area, Ipswich"
+              loading="lazy"
+              width="600"
+              height="600"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         TRUSTED SUPPLIERS
+         Greyscale badges → gold on hover.
+         =================================================================== -->
+    <section class="suppliers" aria-labelledby="suppliers-title">
+      <div class="container">
+        <p class="section-header__label" style="text-align:center;" id="suppliers-title">
+          Trusted Supplier Partners
+        </p>
+        <div class="suppliers__strip">
+          <a href="#" class="supplier-badge" aria-label="Caesarstone — engineered stone supplier">Caesarstone</a>
+          <a href="#" class="supplier-badge" aria-label="WK Stone — natural stone supplier">WK Stone</a>
+          <a href="#" class="supplier-badge" aria-label="YDL Stone — stone supplier">YDL Stone</a>
+          <a href="#" class="supplier-badge" aria-label="Stone Ambassador — stone supplier">Stone Ambassador</a>
+          <a href="#" class="supplier-badge" aria-label="Better Stone — stone supplier">Better Stone</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CLOSING CTA
+         Dark, centred, gold primary button.
+         =================================================================== -->
+    <section class="section section--dark cta-section" id="contact" aria-labelledby="cta-headline">
+      <div class="container">
+        <h2 class="cta-section__headline fade-in" id="cta-headline">
+          Ready to transform your space?
+        </h2>
+        <p class="cta-section__sub fade-in fade-in-delay-1">
+          Get in touch for a free measure and quote. We respond within one business day.
+        </p>
+        <div class="fade-in fade-in-delay-2">
+          <a href="mailto:hello@goldenstoneqld.com.au" class="btn btn--primary btn--lg">
+            Start Your Project
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       FOOTER
+       3-column: brand, explore, contact.
+       ===================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+
+        <!-- Brand column -->
+        <div class="footer__brand">
+          <a href="/" class="footer__logo footer__logo--lockup" aria-label="Golden Stone QLD — home">
+            <svg width="32" height="27" viewBox="0 0 80 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <polygon points="4,38 20,20 76,20 60,38" fill="#B8922A"/>
+              <rect x="4" y="38" width="56" height="28" fill="#111111"/>
+              <polygon points="60,38 76,20 76,48 60,66" fill="#7A5F1A"/>
+            </svg>
+            <span class="footer__logo-name">Golden Stone QLD</span>
+          </a>
+          <p class="footer__tagline">Crafted in Stone. Built to Last.</p>
+          <p class="footer__desc">
+            Premium stone masonry — kitchen benchtops, bathroom vanities, and custom
+            stonework across South East Queensland.
+          </p>
+        </div>
+
+        <!-- Explore column -->
+        <div>
+          <h3 class="footer__heading">Explore</h3>
+          <ul class="footer__links" role="list">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why-us">Why Golden Stone</a></li>
+            <li><a href="#projects">Featured Projects</a></li>
+            <li><a href="#contact">Get a Quote</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact column -->
+        <div>
+          <h3 class="footer__heading">Get in Touch</h3>
+          <ul class="footer__links" role="list">
+            <li><a href="mailto:hello@goldenstoneqld.com.au">hello@goldenstoneqld.com.au</a></li>
+            <li><a href="tel:+61400000000">0400 000 000</a></li>
+            <li><span>Brisbane, Queensland, Australia</span></li>
+          </ul>
+          <p class="footer__service-area">
+            Servicing Brisbane · Ipswich · Logan · Gold Coast · Surrounding SEQ
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <p class="footer__copy">
+        &copy; <span id="footer-year">2025</span> Golden Stone QLD Pty Ltd. All rights reserved.
+        ABN 00 000 000 000.
+      </p>
+      <p class="footer__copy">
+        Brisbane · Queensland · Australia
+      </p>
+    </div>
+  </footer>
+
+  <script src="src/scripts/main.js" defer></script>
+</body>
+</html>
