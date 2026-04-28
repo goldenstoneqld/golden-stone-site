@@ -10,7 +10,7 @@
   'use strict';
 
   /* ── Replace with your deployed Apps Script Web App URL ─────────────────── */
-  var APPS_SCRIPT_URL = 'REPLACE_WITH_YOUR_APPS_SCRIPT_WEB_APP_URL';
+  var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx6Opiulkg3O75OXUkCBrgDuxBqzsZVwCK867Ghtr953M1Pp2kKYnwqI37KOys8tGL-/exec';
 
   var MAX_FILE_SIZE  = 15 * 1024 * 1024; /* 15 MB */
   var MAX_FILE_COUNT = 10;
