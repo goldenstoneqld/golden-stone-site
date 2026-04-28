@@ -737,3 +737,49 @@
 .mt-8  { margin-top: var(--space-8); }
 .mb-4  { margin-bottom: var(--space-4); }
 .mb-8  { margin-bottom: var(--space-8); }
+
+/* ==========================================================================
+   WHATSAPP FLOATING BUTTON
+   Fixed bottom-right on all pages. Links to +61 459 604 470.
+   ========================================================================== */
+.whatsapp-fab {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background-color: #25D366;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.40);
+  text-decoration: none;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.whatsapp-fab:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.50);
+}
+
+.whatsapp-fab:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.whatsapp-fab svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .whatsapp-fab {
+    bottom: var(--space-4);
+    right: var(--space-4);
+    width: 52px;
+    height: 52px;
+  }
+}

@@ -107,7 +107,7 @@ function doPost(e) {
       data.howFound     || '',
       data.preferredContact || '',
       data.bestTime     || '',
-      data.files && data.files.length > 0 ? clientFolder.getUrl() : ''
+      clientFolder.getUrl()
     ]);
 
     /* Auto-resize columns for readability */
