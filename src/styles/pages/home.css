@@ -462,20 +462,8 @@
    TRUSTED SUPPLIERS
    ========================================================================== */
 .suppliers {
-  background-color: var(--color-black);
+  background-color: var(--color-white);
   padding-block: var(--space-12);
-}
-
-.suppliers .section-header__title {
-  color: var(--color-white);
-}
-
-.suppliers .section-header__label {
-  color: var(--color-gold);
-}
-
-.suppliers .section-header__sub {
-  color: var(--color-stone);
 }
 
 .suppliers__logos {
@@ -495,7 +483,6 @@
   height: 80px;
   padding: 1rem;
   text-decoration: none;
-  transition: all 0.3s ease;
 }
 
 .supplier-logo img {
@@ -504,18 +491,6 @@
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: grayscale(100%) brightness(3);
-  opacity: 0.55;
-  transition: all 0.3s ease;
-}
-
-.supplier-logo:hover img {
-  filter: none;
-  opacity: 1;
-}
-
-.supplier-logo:hover {
-  transform: translateY(-2px);
 }
 
 /* ==========================================================================
