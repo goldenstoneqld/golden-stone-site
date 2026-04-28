@@ -122,7 +122,7 @@
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80&fit=crop');
+  background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -466,37 +466,44 @@
   padding-block: var(--space-12);
 }
 
-.suppliers__strip {
+.suppliers__logos {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-4);
   flex-wrap: wrap;
+  gap: 2rem;
   margin-top: var(--space-8);
 }
 
-.supplier-badge {
-  display: inline-flex;
+.supplier-logo {
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-3) var(--space-6);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-md);
-  font-family: var(--font-display);
-  font-size: var(--text-sm);
-  font-weight: var(--font-semibold);
-  letter-spacing: var(--tracking-wide);
-  color: var(--color-stone);
+  max-width: 160px;
+  height: 80px;
+  padding: 1rem;
   text-decoration: none;
-  transition: var(--transition-colour), border-color var(--duration-base) var(--ease-out), var(--transition-shadow);
-  filter: grayscale(1);
+  transition: all 0.3s ease;
 }
 
-.supplier-badge:hover {
-  color: var(--color-gold);
-  border-color: var(--color-gold);
-  box-shadow: var(--shadow-sm);
-  filter: grayscale(0);
+.supplier-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.4);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.supplier-logo:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+.supplier-logo:hover {
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -557,5 +564,25 @@
   color: var(--color-stone);
   letter-spacing: var(--tracking-wide);
   margin-bottom: 0;
+}
+
+.footer__address-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer__address-label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.footer__hours {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
 }
 
