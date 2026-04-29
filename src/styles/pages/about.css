@@ -27,7 +27,7 @@
 .about-hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('public/images/factory.jpg');
+  background-image: url('public/images/factory.png');
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
