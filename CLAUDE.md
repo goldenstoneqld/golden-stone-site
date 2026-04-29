@@ -4,7 +4,7 @@
 
 Institutional website for Golden Stone, a stonemason business in 
 Brisbane, QLD, Australia. Static HTML + CSS + minimal JS. Deployed 
-to Cloudflare Pages (planned). Domain: goldenstoneqld.com.au.
+to GitHub Pages. Domain: goldenstoneqld.com.au.
 
 ## Tech stack
 
@@ -27,6 +27,36 @@ to Cloudflare Pages (planned). Domain: goldenstoneqld.com.au.
 - `docs/design-system.html` — Design system reference page
 - `public/images/suppliers/` — Supplier logo files (uploaded by user, never overwrite)
 
+## Infrastructure
+
+- **Hosting:** GitHub Pages (user site — `goldenstoneqld.github.io`)
+- **Repository name:** `goldenstoneqld.github.io` (must match `<username>.github.io` for user site)
+- **Custom domain:** `goldenstoneqld.com.au` (CNAME file at repo root — do not delete)
+- **HTTPS:** Let's Encrypt certificate via GitHub Pages (automatic)
+- **DNS provider:** Cloudflare (DNS only — proxy/orange cloud is OFF)
+- **Domain registrar:** VentraIP (nameservers: `hunts.ns.cloudflare.com`, `veda.ns.cloudflare.com`)
+
+### DNS records (Cloudflare)
+
+| Type  | Name | Value                    | Proxy |
+|-------|------|--------------------------|-------|
+| A     | @    | 185.199.108.153          | Off   |
+| A     | @    | 185.199.109.153          | Off   |
+| A     | @    | 185.199.110.153          | Off   |
+| A     | @    | 185.199.111.153          | Off   |
+| CNAME | www  | goldenstoneqld.github.io | Off   |
+| MX    | @    | smtp.google.com          | —     |
+| TXT   | @    | google-site-verification | —     |
+
+> **WARNING — Cloudflare proxy:** Do NOT enable the orange cloud on A/CNAME records without
+> first setting SSL/TLS → "Full" (not "Flexible") in Cloudflare. Flexible mode causes redirect
+> loops; the proxy caused 503 errors on CSS/JS/images during initial setup.
+
+> **NOTE — GitHub Pages false negative:** The panel may show "DNS check unsuccessful —
+> NotServedByPagesError" even when the site is live. This is a known GitHub cache delay
+> (hours to days). https://goldenstoneqld.com.au is confirmed working. Do not try to fix
+> this warning by deleting/recreating the CNAME file.
+
 ## Brand summary
 
 - Tagline: "Crafted in Stone. Built to Last."
@@ -46,7 +76,7 @@ to Cloudflare Pages (planned). Domain: goldenstoneqld.com.au.
 - Office: 37 Donna Ave, Rochedale South QLD 4123
 - Factory: 1819 Tarome Rd, Moorang QLD 4340
 - Hours: Mon–Fri, 7:00 AM – 5:00 PM
-- Service area: Brisbane · Ipswich · Logan · Gold Coast
+- Service area: Brisbane · Gold Coast · Ipswich · Logan · Sunshine Coast · Toowoomba
 
 ## Trusted suppliers
 
