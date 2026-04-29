@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Golden Stone QLD — 15+ years of precision stonemasonry expertise in Brisbane. Kitchen benchtops, bathroom vanities and custom stonework across South East Queensland.">
+  <title>About Us — Golden Stone QLD</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><polygon points='4,38 20,20 76,20 60,38' fill='%23B8922A'/><rect x='4' y='38' width='56' height='28' fill='%23111111'/><polygon points='60,38 76,20 76,48 60,66' fill='%237A5F1A'/></svg>">
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="src/styles/reset.css">
+  <link rel="stylesheet" href="src/styles/tokens.css">
+  <link rel="stylesheet" href="src/styles/base.css">
+  <link rel="stylesheet" href="src/styles/components.css">
+
+  <!-- Page styles -->
+  <link rel="stylesheet" href="src/styles/pages/about.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       SITE HEADER
+       ===================================================================== -->
+  <header class="site-header site-header--solid" id="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav__inner container">
+        <a href="index.html" class="nav__logo" aria-label="Golden Stone QLD — home">
+          <svg width="40" height="34" viewBox="0 0 80 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polygon points="4,38 20,20 76,20 60,38" fill="#B8922A"/>
+            <rect x="4" y="38" width="56" height="28" fill="#111111"/>
+            <polygon points="60,38 76,20 76,48 60,66" fill="#7A5F1A"/>
+          </svg>
+          <span class="nav__logo-text">Golden Stone</span>
+        </a>
+
+        <ul class="nav__links" role="list">
+          <li><a href="index.html#services" class="nav__link">Services</a></li>
+          <li><a href="index.html#why-us" class="nav__link">Why Us</a></li>
+          <li><a href="index.html#projects" class="nav__link">Projects</a></li>
+          <li><a href="about.html" class="nav__link" aria-current="page">About</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+
+        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">Get a Quote</a>
+
+        <button class="nav__hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+      <a href="index.html#services" class="mobile-menu__link">Services</a>
+      <a href="index.html#why-us" class="mobile-menu__link">Why Us</a>
+      <a href="index.html#projects" class="mobile-menu__link">Projects</a>
+      <a href="about.html" class="mobile-menu__link">About</a>
+      <a href="contact.html" class="mobile-menu__link">Contact</a>
+      <a href="contact.html" class="btn btn--primary mobile-menu__cta">Get a Quote</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================================================================
+         PAGE HERO
+         =================================================================== -->
+    <section class="about-hero" aria-label="About page header">
+      <div class="about-hero__bg" aria-hidden="true"></div>
+      <div class="about-hero__overlay" aria-hidden="true"></div>
+      <div class="about-hero__content container">
+        <span class="about-hero__label">About Golden Stone QLD</span>
+        <h1 class="about-hero__headline">
+          Precision Engineering<br>meets Stonemasonry<br>Excellence.
+        </h1>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         OUR STORY — intro + stats
+         =================================================================== -->
+    <section class="section about-intro" aria-labelledby="story-title">
+      <div class="container">
+        <div class="about-intro__layout">
+
+          <div class="about-intro__text fade-in">
+            <span class="section-header__label">Our Story</span>
+            <h2 class="about-intro__title" id="story-title">
+              15 Years of Hands-On Expertise
+            </h2>
+            <p class="about-intro__body">
+              With over 15 years of hands-on expertise in the stone industry — spanning
+              templating, cutting, polishing, and installation — Golden Stone QLD delivers
+              high-precision solutions for residential and commercial projects across Queensland.
+            </p>
+            <p class="about-intro__body">
+              Our edge lies in our process automation. By integrating advanced systems into
+              our workflow, we provide rapid, accurate quoting and seamless project management.
+              This commitment to continuous optimisation ensures competitive pricing without
+              compromising the superior precision and scalability that modern architecture demands.
+            </p>
+            <a href="contact.html" class="btn btn--primary">Get a Free Quote</a>
+          </div>
+
+          <div class="about-stats fade-in fade-in-delay-1" aria-label="Key facts">
+            <div class="about-stat">
+              <span class="about-stat__number">15<span class="about-stat__plus">+</span></span>
+              <span class="about-stat__label">Years of Experience</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat__number">6</span>
+              <span class="about-stat__label">Regions Serviced</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat__number">100<span class="about-stat__plus">%</span></span>
+              <span class="about-stat__label">Silica-Safe Materials</span>
+            </div>
+            <div class="about-stat">
+              <span class="about-stat__number">1</span>
+              <span class="about-stat__label">Day Quote Turnaround</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         OUR EDGE — three pillars on dark background
+         =================================================================== -->
+    <section class="section section--dark about-edge" aria-labelledby="edge-title">
+      <div class="container">
+        <header class="section-header fade-in">
+          <span class="section-header__label" style="color: var(--color-gold);">What Sets Us Apart</span>
+          <h2 class="section-header__title" id="edge-title" style="color: var(--color-white);">Our Edge</h2>
+        </header>
+
+        <div class="about-pillars fade-in fade-in-delay-1">
+
+          <div class="about-pillar">
+            <div class="about-pillar__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3 class="about-pillar__title">Process Automation</h3>
+            <p class="about-pillar__desc">
+              Advanced systems integrated into every step of our workflow — from initial
+              enquiry to final delivery. Rapid, accurate quoting and seamless project management as standard.
+            </p>
+          </div>
+
+          <div class="about-pillar">
+            <div class="about-pillar__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+              </svg>
+            </div>
+            <h3 class="about-pillar__title">Precision Engineering</h3>
+            <p class="about-pillar__desc">
+              Templating, cutting, polishing, and installation — every stage executed with
+              technical rigour. Our equipment and methods ensure flawless finishes on every project.
+            </p>
+          </div>
+
+          <div class="about-pillar">
+            <div class="about-pillar__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="about-pillar__title">Complete Ecosystem</h3>
+            <p class="about-pillar__desc">
+              Supply and installation under one roof. We mitigate risk through a structured
+              process, delivering peace of mind through transparency, agility, and total
+              customer satisfaction.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         FACTORY — real photo of the workshop
+         =================================================================== -->
+    <section class="about-factory" aria-labelledby="factory-title">
+      <div class="container">
+        <div class="about-factory__layout">
+
+          <div class="about-factory__image fade-in">
+            <img
+              src="public/images/factory.png"
+              alt="Golden Stone QLD factory — CNC Bridge Saw and automated polisher, Moorang QLD"
+              width="800"
+              height="533"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="about-factory__text fade-in fade-in-delay-1">
+            <span class="section-header__label">Our Factory</span>
+            <h2 class="about-factory__title" id="factory-title">Built for Precision at Scale</h2>
+            <p class="about-factory__body">
+              Our Moorang facility houses professional-grade stone cutting and processing
+              equipment, including a CNC Bridge Saw and an automated polisher — the backbone
+              of our precision fabrication capability.
+            </p>
+            <p class="about-factory__body">
+              This infrastructure allows us to handle projects of any scale, from a single
+              kitchen benchtop to full multi-unit residential builds, all processed to
+              the same exacting standard.
+            </p>
+            <div class="about-factory__address">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              1819 Tarome Rd, Moorang QLD 4340
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         OUR VISION
+         =================================================================== -->
+    <section class="section about-vision" aria-labelledby="vision-title">
+      <div class="container">
+        <div class="about-vision__inner fade-in">
+          <span class="section-header__label">Our Vision</span>
+          <h2 class="about-vision__title" id="vision-title">A Complete Ecosystem for Stone Surfaces</h2>
+          <p class="about-vision__body">
+            Based in Brisbane, we provide a complete ecosystem for stone surfaces. From the initial
+            enquiry to final delivery, our structured process mitigates risks and ensures flawless
+            finishes. We aim to simplify the client experience through transparency, technical
+            rigour, and a focus on high-performance delivery.
+          </p>
+          <p class="about-vision__body about-vision__body--callout">
+            At Golden Stone QLD, we don't just supply stone — we deliver peace of mind through
+            agility, quality, and total customer satisfaction.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SERVICE AREA
+         =================================================================== -->
+    <section class="section section--dark about-area" aria-labelledby="area-title">
+      <div class="container">
+        <header class="section-header fade-in">
+          <span class="section-header__label" style="color: var(--color-gold);">Coverage</span>
+          <h2 class="section-header__title" id="area-title" style="color: var(--color-white);">Where We Work</h2>
+          <p class="section-header__sub" style="color: var(--color-stone);">
+            Servicing residential and commercial clients across South East Queensland.
+          </p>
+        </header>
+
+        <div class="about-area__grid fade-in fade-in-delay-1">
+          <div class="about-area__city">
+            <span class="about-area__dot" aria-hidden="true"></span>Brisbane
+          </div>
+          <div class="about-area__city">
+            <span class="about-area__dot" aria-hidden="true"></span>Ipswich
+          </div>
+          <div class="about-area__city">
+            <span class="about-area__dot" aria-hidden="true"></span>Logan
+          </div>
+          <div class="about-area__city">
+            <span class="about-area__dot" aria-hidden="true"></span>Gold Coast
+          </div>
+          <div class="about-area__city">
+            <span class="about-area__dot" aria-hidden="true"></span>Toowoomba
+          </div>
+          <div class="about-area__city">
+            <span class="about-area__dot" aria-hidden="true"></span>Sunshine Coast
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CTA
+         =================================================================== -->
+    <section class="section cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 class="cta-section__headline fade-in" id="cta-title">
+          Ready to start your project?
+        </h2>
+        <p class="cta-section__sub fade-in fade-in-delay-1">
+          Get in touch for a free measure and quote. We respond within one business day.
+        </p>
+        <div class="fade-in fade-in-delay-2">
+          <a href="contact.html" class="btn btn--primary btn--lg">Get a Free Quote</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       FOOTER
+       ===================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo footer__logo--lockup" aria-label="Golden Stone QLD — home">
+            <svg width="32" height="27" viewBox="0 0 80 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <polygon points="4,38 20,20 76,20 60,38" fill="#B8922A"/>
+              <rect x="4" y="38" width="56" height="28" fill="#111111"/>
+              <polygon points="60,38 76,20 76,48 60,66" fill="#7A5F1A"/>
+            </svg>
+            <span class="footer__logo-name">Golden Stone QLD</span>
+          </a>
+          <p class="footer__tagline">Crafted in Stone. Built to Last.</p>
+          <p class="footer__desc">
+            Premium stone masonry — kitchen benchtops, bathroom vanities, and custom
+            stonework across South East Queensland.
+          </p>
+          <p class="footer__service-area">
+            Servicing Brisbane · Ipswich · Logan · Gold Coast · Toowoomba · Sunshine Coast
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Explore</h3>
+          <ul class="footer__links" role="list">
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#why-us">Why Golden Stone</a></li>
+            <li><a href="index.html#projects">Featured Projects</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Get a Quote</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__heading">Get in Touch</h3>
+          <ul class="footer__links" role="list">
+            <li><a href="mailto:sales@goldenstoneqld.com.au">sales@goldenstoneqld.com.au</a></li>
+            <li><a href="tel:+61459604470">0459 604 470</a></li>
+            <li class="footer__address-item">
+              <span class="footer__address-label">Office</span>
+              <span>37 Donna Ave, Rochedale South QLD 4123</span>
+            </li>
+            <li class="footer__address-item">
+              <span class="footer__address-label">Factory</span>
+              <span>1819 Tarome Rd, Moorang QLD 4340</span>
+            </li>
+            <li class="footer__hours">Mon – Fri, 7:00 AM – 5:00 PM</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <p class="footer__copy">
+        &copy; <span id="footer-year">2025</span> Golden Stone QLD Pty Ltd. All rights reserved.
+        ABN 95 497 084 038.
+      </p>
+      <p class="footer__copy">Brisbane · Queensland · Australia</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/61459604470" class="whatsapp-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.553 4.103 1.518 5.832L.057 23.625a.563.563 0 0 0 .693.704l5.975-1.566A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.372l-.358-.213-3.722.976.993-3.63-.233-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+    </svg>
+  </a>
+
+  <script src="src/scripts/main.js" defer></script>
+</body>
+</html>

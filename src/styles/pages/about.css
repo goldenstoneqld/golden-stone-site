@@ -1,0 +1,401 @@
+/* ==========================================================================
+   Golden Stone QLD — About Page Styles
+   Page-specific only. Requires tokens.css, reset.css, base.css, components.css.
+   Australian English comments throughout.
+   ========================================================================== */
+
+/* Re-use solid header (same as contact page) */
+.site-header--solid .nav {
+  background-color: var(--color-black);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================================
+   ABOUT HERO — taller than contact hero, factory/stone bg
+   ========================================================================== */
+.about-hero {
+  position: relative;
+  padding-top: 72px;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--color-black);
+}
+
+.about-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('public/images/factory.png');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+}
+
+.about-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(17, 17, 17, 0.90) 0%,
+    rgba(17, 17, 17, 0.70) 60%,
+    rgba(17, 17, 17, 0.55) 100%
+  );
+}
+
+.about-hero__content {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--space-16);
+  max-width: 680px;
+}
+
+.about-hero__label {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-4);
+}
+
+.about-hero__headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: var(--font-bold);
+  color: var(--color-white);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+/* ==========================================================================
+   OUR STORY — intro text + stats grid
+   ========================================================================== */
+.about-intro {
+  background-color: var(--color-bg);
+}
+
+.about-intro__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+@media (max-width: 1023px) {
+  .about-intro__layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.about-intro__text .section-header__label {
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.about-intro__title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl));
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-6);
+  line-height: var(--leading-snug);
+}
+
+.about-intro__body {
+  font-size: var(--text-base);
+  color: var(--color-text-sec);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-6);
+}
+
+/* Stats grid */
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.about-stat {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-gold);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  box-shadow: var(--shadow-xs);
+}
+
+.about-stat__number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.25rem);
+  font-weight: var(--font-bold);
+  color: var(--color-gold);
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+}
+
+.about-stat__plus {
+  font-size: 60%;
+  vertical-align: super;
+}
+
+.about-stat__label {
+  font-size: var(--text-sm);
+  color: var(--color-text-sec);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-normal);
+}
+
+/* ==========================================================================
+   OUR EDGE — three pillars on dark background
+   ========================================================================== */
+.about-edge {
+  background-color: var(--color-black);
+}
+
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 1023px) {
+  .about-pillars { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .about-pillars { grid-template-columns: repeat(3, 1fr); }
+}
+
+.about-pillar {
+  padding: var(--space-8);
+  border-top: 2px solid rgba(184, 146, 42, 0.30);
+}
+
+.about-pillar__icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(184, 146, 42, 0.10);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  margin-bottom: var(--space-4);
+}
+
+.about-pillar__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-white);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-3);
+}
+
+.about-pillar__desc {
+  font-size: var(--text-sm);
+  color: var(--color-stone);
+  line-height: var(--leading-relaxed);
+}
+
+/* ==========================================================================
+   FACTORY — image + text side by side
+   ========================================================================== */
+.about-factory {
+  background-color: var(--color-surface);
+  padding-block: var(--space-16);
+}
+
+.about-factory__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+@media (max-width: 1023px) {
+  .about-factory__layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.about-factory__image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.about-factory__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.about-factory__text .section-header__label {
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.about-factory__title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl));
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-6);
+}
+
+.about-factory__body {
+  font-size: var(--text-base);
+  color: var(--color-text-sec);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+.about-factory__address {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-gold);
+  font-weight: var(--font-medium);
+  margin-top: var(--space-6);
+}
+
+.about-factory__address svg {
+  flex-shrink: 0;
+  color: var(--color-gold);
+}
+
+/* ==========================================================================
+   OUR VISION — centred, warm cream
+   ========================================================================== */
+.about-vision {
+  background-color: var(--color-bg);
+}
+
+.about-vision__inner {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.about-vision__inner .section-header__label {
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.about-vision__title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl));
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-8);
+}
+
+.about-vision__body {
+  font-size: var(--text-lg);
+  color: var(--color-text-sec);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-6);
+}
+
+.about-vision__body--callout {
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  font-weight: var(--font-semibold);
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-tight);
+  padding-left: var(--space-6);
+  border-left: 3px solid var(--color-gold);
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   SERVICE AREA — city grid on dark
+   ========================================================================== */
+.about-area {
+  background-color: var(--color-black);
+}
+
+.about-area__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 639px) {
+  .about-area__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.about-area__city {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  color: var(--color-white);
+  letter-spacing: var(--tracking-tight);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.about-area__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-gold);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   CTA — re-use home page styles (already in home.css, duplicated here
+   for standalone page use)
+   ========================================================================== */
+.cta-section {
+  background-color: var(--color-black);
+  text-align: center;
+}
+
+.cta-section__headline {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+  font-weight: var(--font-bold);
+  color: var(--color-white);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-4);
+}
+
+.cta-section__sub {
+  font-size: var(--text-lg);
+  color: var(--color-stone);
+  margin-bottom: var(--space-8);
+}
+
+/* ==========================================================================
+   SECTION HEADER LABEL — re-used on light bg sections
+   ========================================================================== */
+.about-intro .section-header__label,
+.about-factory .section-header__label,
+.about-vision .section-header__label {
+  color: var(--color-gold);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
