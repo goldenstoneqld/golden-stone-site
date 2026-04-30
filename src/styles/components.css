@@ -179,7 +179,14 @@
 .nav__phone svg { flex-shrink: 0; }
 
 @media (max-width: 767px) {
-  .nav__phone { display: none; }
+  .nav__phone {
+    margin-left: auto;
+    margin-right: var(--space-3);
+    font-size: var(--text-xs);
+    letter-spacing: 0;
+    gap: var(--space-1);
+  }
+  .nav__phone svg { display: none; }
 }
 
 /* ==========================================================================
