@@ -104,6 +104,7 @@
   .nav__hamburger { display: flex; }
   .nav__links { display: none; }
   .nav__cta { display: none; }
+  .nav__phone { display: none; }
 }
 
 /* ==========================================================================
