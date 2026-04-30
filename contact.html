@@ -78,6 +78,32 @@
 
   <!-- Page styles -->
   <link rel="stylesheet" href="src/styles/pages/contact.css">
+
+  <!-- Google Places autocomplete dropdown styling -->
+  <style>
+    .pac-container {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,0.12);
+      border-radius: 6px;
+      box-shadow: 0 8px 24px rgba(17,17,17,0.12);
+      font-family: 'DM Sans', sans-serif;
+      margin-top: 2px;
+    }
+    .pac-item {
+      padding: 10px 14px;
+      cursor: pointer;
+      border-top: 1px solid rgba(17,17,17,0.06);
+      color: #555;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .pac-item:first-child { border-top: none; }
+    .pac-item:hover, .pac-item-selected { background: rgba(184,146,42,0.08); }
+    .pac-item-query { color: #111; font-weight: 500; }
+    .pac-matched { color: #B8922A; }
+    .pac-icon { display: none; }
+    .pac-logo::after { display: none; }
+  </style>
 </head>
 <body>
 
@@ -312,6 +338,18 @@
                 <!-- ── Section 3: Location ── -->
                 <div class="form-section">
                   <h2 class="form-section__title">Location</h2>
+
+                  <div class="form-group">
+                    <label class="form-label" for="address">Street Address</label>
+                    <input
+                      type="text"
+                      class="form-input"
+                      id="address"
+                      name="address"
+                      autocomplete="off"
+                      placeholder="Start typing your address…"
+                    >
+                  </div>
 
                   <div class="form-row form-row--location">
                     <div class="form-group form-group--grow">
@@ -673,5 +711,36 @@
 
   <script src="src/scripts/main.js" defer></script>
   <script src="src/scripts/contact.js" defer></script>
+
+  <!-- Google Places address autocomplete -->
+  <script>
+    function initAddressAutocomplete() {
+      var input = document.getElementById('address');
+      if (!input || !window.google) return;
+      var ac = new google.maps.places.Autocomplete(input, {
+        componentRestrictions: { country: 'au' },
+        types: ['address'],
+        fields: ['address_components', 'formatted_address']
+      });
+      ac.addListener('place_changed', function () {
+        var place = ac.getPlace();
+        if (!place.address_components) return;
+        var suburb = '';
+        for (var i = 0; i < place.address_components.length; i++) {
+          var c = place.address_components[i];
+          if (c.types.indexOf('locality') !== -1) suburb = c.long_name;
+        }
+        var suburbEl = document.getElementById('suburb');
+        if (suburb && suburbEl) {
+          suburbEl.value = suburb;
+          suburbEl.dispatchEvent(new Event('input'));
+        }
+      });
+    }
+  </script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4Io-9TLalvu6P8xlijfL1Ll0bikgKtHE&libraries=places&callback=initAddressAutocomplete"
+    async
+    defer></script>
 </body>
 </html>
