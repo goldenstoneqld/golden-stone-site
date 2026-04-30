@@ -340,47 +340,20 @@
                   <h2 class="form-section__title">Location</h2>
 
                   <div class="form-group">
-                    <label class="form-label" for="address">Street Address</label>
+                    <label class="form-label" for="suburb">
+                      Address <span class="form-required" aria-hidden="true">*</span>
+                    </label>
                     <input
                       type="text"
                       class="form-input"
-                      id="address"
-                      name="address"
+                      id="suburb"
+                      name="suburb"
+                      required
                       autocomplete="off"
                       placeholder="Start typing your address…"
+                      aria-required="true"
                     >
-                  </div>
-
-                  <div class="form-row form-row--location">
-                    <div class="form-group form-group--grow">
-                      <label class="form-label" for="suburb">
-                        Suburb / City <span class="form-required" aria-hidden="true">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        class="form-input"
-                        id="suburb"
-                        name="suburb"
-                        required
-                        autocomplete="address-level2"
-                        placeholder="e.g. Rochedale South"
-                        aria-required="true"
-                      >
-                      <span class="form-error" id="suburb-error" role="alert"></span>
-                    </div>
-
-                    <div class="form-group form-group--state">
-                      <label class="form-label" for="state">State</label>
-                      <input
-                        type="text"
-                        class="form-input form-input--readonly"
-                        id="state"
-                        name="state"
-                        value="QLD"
-                        readonly
-                        aria-readonly="true"
-                      >
-                    </div>
+                    <span class="form-error" id="suburb-error" role="alert"></span>
                   </div>
                 </div>
 
@@ -715,25 +688,18 @@
   <!-- Google Places address autocomplete -->
   <script>
     function initAddressAutocomplete() {
-      var input = document.getElementById('address');
+      var input = document.getElementById('suburb');
       if (!input || !window.google) return;
       var ac = new google.maps.places.Autocomplete(input, {
         componentRestrictions: { country: 'au' },
         types: ['address'],
-        fields: ['address_components', 'formatted_address']
+        fields: ['formatted_address']
       });
       ac.addListener('place_changed', function () {
         var place = ac.getPlace();
-        if (!place.address_components) return;
-        var suburb = '';
-        for (var i = 0; i < place.address_components.length; i++) {
-          var c = place.address_components[i];
-          if (c.types.indexOf('locality') !== -1) suburb = c.long_name;
-        }
-        var suburbEl = document.getElementById('suburb');
-        if (suburb && suburbEl) {
-          suburbEl.value = suburb;
-          suburbEl.dispatchEvent(new Event('input'));
+        if (place.formatted_address) {
+          input.value = place.formatted_address;
+          input.dispatchEvent(new Event('input'));
         }
       });
     }

@@ -173,7 +173,6 @@
           projectType:      val(form.querySelector('#project-type')),
           stonePref:        val(form.querySelector('#stone-pref')),
           size:             val(form.querySelector('#size')),
-          address:          trim(form.querySelector('#address')),
           suburb:           trim(form.querySelector('#suburb')),
           state:            val(form.querySelector('#state')),
           message:          trim(form.querySelector('#message')),
