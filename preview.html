@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Stone QLD — Preview Redesign</title>
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,300;0,400;0,600;0,700;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    :root {
+      --moss-dark:  #1C2819;
+      --moss-mid:   #3A5235;
+      --moss-light: #7A9E74;
+      --moss-pale:  #B4CCAF;
+      --off-white:  #F4F1EA;
+      --cream:      #EAE4D6;
+      --taupe:      #C8B89E;
+      --brass:      #A8875A;
+      --text-dark:  #181E15;
+      --text-mid:   #4A5A44;
+      --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring:cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── Preview banner ── */
+    .preview-banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      background: var(--brass);
+      color: var(--off-white);
+      text-align: center;
+      padding: 0.45rem 1rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .preview-banner a { text-decoration: underline; opacity: 0.85; }
+    .preview-banner a:hover { opacity: 1; }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed;
+      top: 28px; left: 0; right: 0;
+      z-index: 200;
+      padding: 1.5rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.5s ease, padding 0.4s ease, backdrop-filter 0.5s;
+    }
+    .nav.scrolled {
+      background: rgba(28, 40, 25, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1rem 4rem;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--off-white);
+    }
+    .nav__links {
+      display: flex;
+      gap: 2.5rem;
+    }
+    .nav__links a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(244,241,234,0.65);
+      transition: color 0.2s;
+    }
+    .nav__links a:hover { color: var(--off-white); }
+    .nav__phone {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.4rem;
+      border: 1px solid rgba(244,241,234,0.25);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--off-white);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .nav__phone:hover {
+      background: rgba(244,241,234,0.1);
+      border-color: rgba(244,241,234,0.5);
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2.25rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.5s var(--ease-spring), background 0.2s, box-shadow 0.3s, border-color 0.2s;
+      will-change: transform;
+    }
+    .btn--primary {
+      background: var(--brass);
+      color: var(--off-white);
+    }
+    .btn--primary:hover {
+      background: #BD9C6A;
+      box-shadow: 0 12px 40px rgba(168,135,90,0.4);
+    }
+    .btn--outline {
+      background: transparent;
+      border: 1px solid rgba(244,241,234,0.3);
+      color: var(--off-white);
+    }
+    .btn--outline:hover {
+      background: rgba(244,241,234,0.08);
+      border-color: rgba(244,241,234,0.6);
+    }
+    .btn--dark {
+      background: var(--moss-dark);
+      color: var(--off-white);
+    }
+    .btn--dark:hover { background: var(--moss-mid); }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      height: 100dvh;
+      min-height: 680px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--moss-dark);
+    }
+    .hero__bg {
+      position: absolute;
+      inset: -5%;
+      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.28;
+      will-change: transform;
+      transition: opacity 1s ease;
+    }
+    .hero__grad {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(28,40,25,0.96) 0%,
+        rgba(28,40,25,0.4)  45%,
+        rgba(28,40,25,0.1)  100%
+      );
+    }
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      padding: 0 4rem 5.5rem;
+      width: 100%;
+      will-change: transform;
+    }
+    .hero__region {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--moss-pale);
+      margin-bottom: 1.75rem;
+    }
+    .hero__headline {
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      font-size: clamp(4rem, 10vw, 9.5rem);
+      font-weight: 700;
+      line-height: 0.88;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+      color: var(--off-white);
+      margin-bottom: 2.5rem;
+      will-change: transform;
+    }
+    .hero__headline em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--taupe);
+    }
+    .hero__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero__scroll {
+      position: absolute;
+      right: 4rem;
+      bottom: 5.5rem;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(244,241,234,0.35);
+    }
+    .hero__scroll-line {
+      width: 1px;
+      height: 56px;
+      background: linear-gradient(to bottom, rgba(244,241,234,0.4), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%   { transform: scaleY(0) translateY(0);   transform-origin: top; }
+      49%  { transform: scaleY(1) translateY(0);   transform-origin: top; }
+      50%  { transform: scaleY(1) translateY(0);   transform-origin: bottom; }
+      100% { transform: scaleY(0) translateY(100%);transform-origin: bottom; }
+    }
+
+    /* ── Section commons ── */
+    .section-label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--moss-mid);
+      margin-bottom: 0.875rem;
+    }
+    .section-title {
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      font-size: clamp(2.25rem, 4.5vw, 4rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.92;
+      color: var(--text-dark);
+    }
+
+    /* ── Services ── */
+    .services {
+      padding: 7rem 4rem;
+      background: var(--off-white);
+    }
+    .services__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .service-card {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .service-card__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease-out);
+    }
+    .service-card:hover .service-card__img { transform: scale(1.06); }
+    .service-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(28,40,25,0.90) 0%,
+        rgba(28,40,25,0.25) 55%,
+        transparent 100%
+      );
+      transition: background 0.4s;
+    }
+    .service-card:hover .service-card__overlay {
+      background: linear-gradient(
+        to top,
+        rgba(28,40,25,0.95) 0%,
+        rgba(28,40,25,0.45) 60%,
+        rgba(28,40,25,0.1) 100%
+      );
+    }
+    .service-card__body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem 1.75rem;
+    }
+    .service-card__cat {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--moss-pale);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .service-card__title {
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--off-white);
+      letter-spacing: -0.01em;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .service-card__desc {
+      font-size: 0.83rem;
+      color: rgba(244,241,234,0.65);
+      line-height: 1.65;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.45s var(--ease-out), opacity 0.35s;
+    }
+    .service-card:hover .service-card__desc {
+      max-height: 100px;
+      opacity: 1;
+    }
+
+    /* ── Why ── */
+    .why {
+      padding: 7rem 4rem;
+      background: var(--moss-dark);
+      color: var(--off-white);
+    }
+    .why .section-label { color: var(--moss-pale); }
+    .why .section-title { color: var(--off-white); }
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(180,204,175,0.15);
+    }
+    .pillar {
+      padding: 2.5rem 2rem 2.5rem 0;
+      border-right: 1px solid rgba(180,204,175,0.1);
+      padding-left: 2rem;
+    }
+    .pillar:first-child { padding-left: 0; }
+    .pillar:last-child { border-right: none; }
+    .pillar__num {
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 700;
+      color: var(--moss-pale);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .pillar__title {
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--off-white);
+      margin-bottom: 0.75rem;
+    }
+    .pillar__desc {
+      font-size: 0.83rem;
+      color: rgba(244,241,234,0.5);
+      line-height: 1.7;
+    }
+
+    /* ── About split ── */
+    .about {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      min-height: 620px;
+    }
+    .about__img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .about__img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s var(--ease-out);
+    }
+    .about:hover .about__img-wrap img { transform: scale(1.04); }
+    .about__text {
+      background: var(--cream);
+      padding: 5rem 4.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .about .section-label { margin-bottom: 0; }
+    .about__title {
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      color: var(--text-dark);
+    }
+    .about__body {
+      font-size: 0.93rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+    }
+    .about__address {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--moss-mid);
+      font-weight: 500;
+    }
+
+    /* ── Projects ── */
+    .projects {
+      padding: 7rem 4rem;
+      background: var(--off-white);
+    }
+    .projects__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+    }
+    .projects__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 420px 280px;
+      gap: 1rem;
+    }
+    .project-tile {
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+    }
+    .project-tile:first-child { grid-row: span 2; }
+    .project-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease-out);
+    }
+    .project-tile:hover img { transform: scale(1.07); }
+
+    /* ── Suppliers ── */
+    .suppliers {
+      padding: 5rem 4rem;
+      background: var(--cream);
+      text-align: center;
+    }
+    .suppliers .section-label { color: var(--moss-mid); }
+    .suppliers__logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.5rem 4rem;
+      margin-top: 3rem;
+      transition: filter 0.5s, opacity 0.5s;
+      filter: grayscale(1);
+      opacity: 0.55;
+    }
+    .suppliers__logos:hover { filter: grayscale(0); opacity: 1; }
+    .supplier-logo img {
+      height: 34px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      padding: 10rem 4rem;
+      background: var(--moss-dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(58,82,53,0.55) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .cta__headline {
+      position: relative;
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      font-size: clamp(2.75rem, 7vw, 6.5rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.025em;
+      line-height: 0.9;
+      color: var(--off-white);
+      margin-bottom: 1.75rem;
+    }
+    .cta__sub {
+      position: relative;
+      font-size: 1rem;
+      color: rgba(244,241,234,0.5);
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--text-dark);
+      padding: 4.5rem 4rem 2rem;
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer__name {
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--off-white);
+      margin-bottom: 0.5rem;
+    }
+    .footer__tag {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--taupe);
+      margin-bottom: 1rem;
+    }
+    .footer__desc {
+      font-size: 0.8rem;
+      color: rgba(244,241,234,0.4);
+      line-height: 1.75;
+    }
+    .footer__heading {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--moss-pale);
+      margin-bottom: 1.25rem;
+    }
+    .footer__links { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer__links li { font-size: 0.83rem; color: rgba(244,241,234,0.5); transition: color 0.2s; }
+    .footer__links a:hover { color: var(--off-white); }
+    .footer__bottom {
+      border-top: 1px solid rgba(244,241,234,0.07);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: rgba(244,241,234,0.3);
+    }
+
+    /* ── WhatsApp ── */
+    .wa-fab {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      z-index: 300;
+      width: 54px; height: 54px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.35s var(--ease-spring), box-shadow 0.3s;
+    }
+    .wa-fab:hover {
+      transform: scale(1.12);
+      box-shadow: 0 10px 35px rgba(37,211,102,0.5);
+    }
+
+    /* ── Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.85s var(--ease-out), transform 0.85s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .nav { padding: 1.25rem 1.5rem; }
+      .nav.scrolled { padding: 0.875rem 1.5rem; }
+      .nav__links { display: none; }
+      .hero__content, .hero__scroll { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .hero__scroll { display: none; }
+      .services, .why, .projects, .suppliers, .cta { padding: 5rem 1.5rem; }
+      .services__top, .projects__top { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .services__grid { grid-template-columns: 1fr; }
+      .why__grid { grid-template-columns: 1fr 1fr; }
+      .pillar { padding-left: 0; border-right: none; border-bottom: 1px solid rgba(180,204,175,0.1); }
+      .about { grid-template-columns: 1fr; }
+      .about__img-wrap { height: 350px; }
+      .about__text { padding: 3.5rem 1.5rem; }
+      .projects__grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .project-tile:first-child { grid-row: span 1; height: 360px; }
+      .project-tile { height: 240px; }
+      .footer { padding: 3rem 1.5rem 1.5rem; }
+      .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer__bottom { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Preview banner ── -->
+  <div class="preview-banner">
+    ⚡ Proposta de redesign — <a href="/">Ver site actual</a>
+  </div>
+
+  <!-- ── Nav ── -->
+  <header class="nav" id="nav">
+    <a href="#" class="nav__logo">
+      <svg width="26" height="22" viewBox="0 0 80 68" fill="none">
+        <polygon points="4,38 20,20 76,20 60,38" fill="#B4CCAF"/>
+        <rect x="4" y="38" width="56" height="28" fill="#F4F1EA"/>
+        <polygon points="60,38 76,20 76,48 60,66" fill="#7A9E74"/>
+      </svg>
+      Golden Stone
+    </a>
+    <ul class="nav__links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+    <a href="tel:+61459604470" class="nav__phone">0459 604 470</a>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" id="hero-bg"></div>
+    <div class="hero__grad"></div>
+
+    <div class="hero__content" id="hero-content">
+      <p class="hero__region">Brisbane · Gold Coast · Ipswich · Logan · Sunshine Coast · Toowoomba</p>
+      <h1 class="hero__headline">
+        Crafted<br>
+        in <em>Stone.</em><br>
+        Built to<br>
+        Last.
+      </h1>
+      <div class="hero__actions">
+        <a href="contact.html" class="btn btn--primary mag-btn">Get a Free Quote</a>
+        <a href="#projects"    class="btn btn--outline  mag-btn">View Our Work</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <div class="hero__scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ── Services ── -->
+  <section class="services" id="services">
+    <div class="services__top">
+      <div>
+        <span class="section-label reveal">What We Do</span>
+        <h2 class="section-title reveal reveal-d1">Premium<br>Stone Services</h2>
+      </div>
+      <a href="contact.html" class="btn btn--dark mag-btn reveal reveal-d2">Get a Quote →</a>
+    </div>
+
+    <div class="services__grid">
+      <article class="service-card reveal tilt">
+        <img class="service-card__img"
+          src="https://images.pexels.com/photos/6301183/pexels-photo-6301183.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop"
+          alt="Kitchen benchtop" loading="lazy">
+        <div class="service-card__overlay"></div>
+        <div class="service-card__body">
+          <span class="service-card__cat">Residential &amp; Commercial</span>
+          <h3 class="service-card__title">Kitchen Benchtops</h3>
+          <p class="service-card__desc">Granite, marble, quartzite, and silica-free engineered stone. Templated, fabricated, and installed to exact specification.</p>
+        </div>
+      </article>
+
+      <article class="service-card reveal reveal-d1 tilt">
+        <img class="service-card__img"
+          src="https://images.pexels.com/photos/7545855/pexels-photo-7545855.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop"
+          alt="Bathroom vanity" loading="lazy">
+        <div class="service-card__overlay"></div>
+        <div class="service-card__body">
+          <span class="service-card__cat">Bathrooms &amp; Ensuites</span>
+          <h3 class="service-card__title">Bathroom Vanities</h3>
+          <p class="service-card__desc">Stone vanity tops, shower niches, and feature walls. Custom cut-outs for undermount and integrated basins.</p>
+        </div>
+      </article>
+
+      <article class="service-card reveal reveal-d2 tilt">
+        <img class="service-card__img"
+          src="https://images.pexels.com/photos/2343467/pexels-photo-2343467.jpeg?auto=compress&cs=tinysrgb&w=800&h=1200&fit=crop"
+          alt="Custom stonework" loading="lazy">
+        <div class="service-card__overlay"></div>
+        <div class="service-card__body">
+          <span class="service-card__cat">Bespoke Projects</span>
+          <h3 class="service-card__title">Custom Stonework</h3>
+          <p class="service-card__desc">Fireplace surrounds, alfresco areas, reception desks, and statement pieces. If it can be built in stone, we deliver it.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── Why ── -->
+  <section class="why" id="why">
+    <span class="section-label reveal">Why Golden Stone</span>
+    <h2 class="section-title reveal reveal-d1">The Golden Stone<br>Difference</h2>
+    <div class="why__grid">
+      <div class="pillar reveal">
+        <div class="pillar__num">15+</div>
+        <h3 class="pillar__title">Years of Experience</h3>
+        <p class="pillar__desc">Templating, cutting, polishing, and installation — 15 years of hands-on stone masonry expertise across Queensland.</p>
+      </div>
+      <div class="pillar reveal reveal-d1">
+        <div class="pillar__num">100%</div>
+        <h3 class="pillar__title">Silica-Safe Materials</h3>
+        <p class="pillar__desc">Every slab sourced from trusted suppliers meeting Australian silica-safe standards. No compromises on health or quality.</p>
+      </div>
+      <div class="pillar reveal reveal-d2">
+        <div class="pillar__num">1 Day</div>
+        <h3 class="pillar__title">Quote Turnaround</h3>
+        <p class="pillar__desc">Digital templating and process automation means rapid, accurate quoting. You'll have a figure within one business day.</p>
+      </div>
+      <div class="pillar reveal reveal-d3">
+        <div class="pillar__num">6</div>
+        <h3 class="pillar__title">Regions Serviced</h3>
+        <p class="pillar__desc">Brisbane, Gold Coast, Ipswich, Logan, Sunshine Coast, and Toowoomba. Same team from measure to install — no outsourcing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About / Factory ── -->
+  <section class="about" id="about">
+    <div class="about__img-wrap reveal">
+      <img src="public/images/factory.png"
+        alt="Golden Stone QLD factory — CNC Bridge Saw, Moorang QLD"
+        loading="lazy">
+    </div>
+    <div class="about__text">
+      <span class="section-label reveal">Our Story</span>
+      <h2 class="about__title reveal reveal-d1">Built for<br>Precision<br>at Scale</h2>
+      <p class="about__body reveal reveal-d2">
+        With over 15 years of hands-on expertise — spanning templating, cutting, polishing, and installation — Golden Stone QLD delivers high-precision solutions for residential and commercial projects across Queensland.
+      </p>
+      <p class="about__body reveal reveal-d3">
+        Our Moorang facility houses a CNC Bridge Saw and automated polisher. From a single kitchen benchtop to full multi-unit residential builds, all processed to the same exacting standard.
+      </p>
+      <div class="about__address reveal reveal-d4">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        1819 Tarome Rd, Moorang QLD 4340
+      </div>
+      <a href="contact.html" class="btn btn--dark mag-btn reveal reveal-d4" style="align-self:flex-start; margin-top:0.5rem;">Start Your Project →</a>
+    </div>
+  </section>
+
+  <!-- ── Projects ── -->
+  <section class="projects" id="projects">
+    <div class="projects__top">
+      <div>
+        <span class="section-label reveal">Recent Work</span>
+        <h2 class="section-title reveal reveal-d1">Featured Projects</h2>
+      </div>
+    </div>
+    <div class="projects__grid">
+      <div class="project-tile reveal">
+        <img src="https://images.pexels.com/photos/35189706/pexels-photo-35189706.jpeg?auto=compress&cs=tinysrgb&w=900&h=1400&fit=crop"
+          alt="Luxury kitchen, Brisbane" loading="lazy">
+      </div>
+      <div class="project-tile reveal reveal-d1">
+        <img src="https://images.pexels.com/photos/7027759/pexels-photo-7027759.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop"
+          alt="White kitchen, Gold Coast" loading="lazy">
+      </div>
+      <div class="project-tile reveal reveal-d2">
+        <img src="https://images.pexels.com/photos/6835092/pexels-photo-6835092.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop"
+          alt="Stone countertop, Ipswich" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Suppliers ── -->
+  <section class="suppliers">
+    <span class="section-label reveal">Our Partners</span>
+    <h2 class="section-title reveal reveal-d1">Trusted Suppliers</h2>
+    <div class="suppliers__logos">
+      <a href="https://www.caesarstone.com.au" target="_blank" rel="noopener" class="supplier-logo">
+        <img src="public/images/suppliers/caesarstone.png" alt="Caesarstone" loading="lazy">
+      </a>
+      <a href="https://www.wkstone.com.au" target="_blank" rel="noopener" class="supplier-logo">
+        <img src="public/images/suppliers/wk-stone.png" alt="WK Stone" loading="lazy">
+      </a>
+      <a href="https://www.ydlstone.com.au" target="_blank" rel="noopener" class="supplier-logo">
+        <img src="public/images/suppliers/ydl-stone.png" alt="YDL Stone" loading="lazy">
+      </a>
+      <a href="https://www.stoneambassador.com.au" target="_blank" rel="noopener" class="supplier-logo">
+        <img src="public/images/suppliers/stone-ambassador.webp" alt="Stone Ambassador" loading="lazy">
+      </a>
+      <a href="https://www.betterstone.com.au" target="_blank" rel="noopener" class="supplier-logo">
+        <img src="public/images/suppliers/better-stone.webp" alt="Better Stone" loading="lazy">
+      </a>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta">
+    <h2 class="cta__headline reveal">Ready to<br>Transform<br>Your Space?</h2>
+    <p class="cta__sub reveal reveal-d1">Free measure and quote. We respond within one business day.</p>
+    <div class="reveal reveal-d2">
+      <a href="contact.html" class="btn btn--primary mag-btn" style="padding:1.1rem 3rem; font-size:0.85rem;">Start Your Project →</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__name">Golden Stone QLD</div>
+        <div class="footer__tag">Crafted in Stone. Built to Last.</div>
+        <p class="footer__desc">Premium stone masonry — kitchen benchtops, bathroom vanities, and custom stonework across South East Queensland.</p>
+      </div>
+      <div>
+        <div class="footer__heading">Navigate</div>
+        <ul class="footer__links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="contact.html">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__heading">Get in Touch</div>
+        <ul class="footer__links">
+          <li><a href="tel:+61459604470">0459 604 470</a></li>
+          <li><a href="mailto:sales@goldenstoneqld.com.au">sales@goldenstoneqld.com.au</a></li>
+          <li>37 Donna Ave, Rochedale South QLD 4123</li>
+          <li>Mon – Fri, 7:00 AM – 5:00 PM</li>
+          <li>ABN 95 497 084 038</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="yr"></span> Golden Stone QLD Pty Ltd. All rights reserved.</span>
+      <span>Brisbane · Queensland · Australia</span>
+    </div>
+  </footer>
+
+  <!-- ── WhatsApp ── -->
+  <a href="https://wa.me/61459604470" class="wa-fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.553 4.103 1.518 5.832L.057 23.625a.563.563 0 0 0 .693.704l5.975-1.566A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.006-1.372l-.358-.213-3.722.976.993-3.63-.233-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+    </svg>
+  </a>
+
+  <script>
+    'use strict';
+
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Nav scroll
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Hero parallax — mouse
+    var heroBg      = document.getElementById('hero-bg');
+    var heroContent = document.getElementById('hero-content');
+    var isMobile    = window.matchMedia('(max-width: 900px)').matches;
+    if (!isMobile) {
+      document.addEventListener('mousemove', function (e) {
+        var cx = window.innerWidth  / 2;
+        var cy = window.innerHeight / 2;
+        var dx = (e.clientX - cx) / cx;
+        var dy = (e.clientY - cy) / cy;
+        heroBg.style.transform      = 'translate3d(' + (dx * 22) + 'px,' + (dy * 12) + 'px,0) scale(1.06)';
+        heroContent.style.transform = 'translate3d(' + (dx * -9) + 'px,' + (dy * -6) + 'px,0)';
+      }, { passive: true });
+    }
+
+    // 3D card tilt
+    document.querySelectorAll('.tilt').forEach(function (card) {
+      card.addEventListener('mouseenter', function () {
+        card.style.transition = 'transform 0.08s ease, box-shadow 0.3s';
+      });
+      card.addEventListener('mousemove', function (e) {
+        var r  = card.getBoundingClientRect();
+        var x  = (e.clientX - r.left)  / r.width  - 0.5;
+        var y  = (e.clientY - r.top)   / r.height - 0.5;
+        card.style.transform = [
+          'perspective(900px)',
+          'rotateX(' + (-y * 13) + 'deg)',
+          'rotateY(' + ( x * 13) + 'deg)',
+          'scale3d(1.025,1.025,1.025)'
+        ].join(' ');
+        card.style.boxShadow = '0 30px 60px rgba(28,40,25,0.28)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transition = 'transform 0.75s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.5s';
+        card.style.transform  = '';
+        card.style.boxShadow  = '';
+      });
+    });
+
+    // Magnetic buttons
+    document.querySelectorAll('.mag-btn').forEach(function (btn) {
+      btn.addEventListener('mouseenter', function () {
+        btn.style.transition = 'transform 0.08s ease, background 0.2s, box-shadow 0.3s, border-color 0.2s';
+      });
+      btn.addEventListener('mousemove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width  / 2) * 0.32;
+        var y = (e.clientY - r.top  - r.height / 2) * 0.32;
+        btn.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      });
+      btn.addEventListener('mouseleave', function () {
+        btn.style.transition = 'transform 0.65s cubic-bezier(0.34,1.56,0.64,1), background 0.2s, box-shadow 0.3s, border-color 0.2s';
+        btn.style.transform  = '';
+      });
+    });
+
+    // Scroll reveal
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+  </script>
+</body>
+</html>
